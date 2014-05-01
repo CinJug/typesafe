@@ -4,7 +4,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
- * Represents a value lifted to Maybe<A>
+ * Represents a value lifted to {@code Maybe<A>}
  *
  * @param <A> the type of value lifted
  */

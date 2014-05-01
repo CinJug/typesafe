@@ -3,9 +3,9 @@ package com.kyrlach.functional.monad.exception;
 import java.util.function.Function;
 
 /**
- * This represents the result of a () -> A \/ Throwable lifted to Try<A> 
+ * This represents the result of {@code  () -> A \u228E Throwable} lifted to {@code Try<A>}.
  *
- * @param <A> the type of value produced by () -> A \/ Throwable when successful
+ * @param <A> the type of value produced by {@code () -> A \u228E Throwable} when successful
  */
 public class Success<A> extends Try<A> {
 	

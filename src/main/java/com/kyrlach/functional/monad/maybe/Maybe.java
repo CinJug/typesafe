@@ -4,18 +4,18 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
- * A sum type that represents a value that may be present, or may not be
+ * A sum type that represents a value that may be present, or may not be.
  *
  * @param <A> the type of the optional value
  */
 public abstract class Maybe<A> {
 	
 	/**
-	 * A type constructor that lifts an A to a Maybe<A> 
+	 * A type constructor that lifts an {@code A} to a {@code Maybe<A>}.
 	 *
 	 * @param <A> the type of value to lift
 	 * @param b the value to lift
-	 * @return a Maybe<A> representing an optionally present value
+	 * @return a {@code Maybe<A>} representing an optionally present value
 	 */
 	public static <A> Maybe<A> toMaybe(final A b)
 	{
@@ -27,23 +27,23 @@ public abstract class Maybe<A> {
 	}
 	
 	/**
-	 * Simulates ML style pattern matching on the union, applying the function just when this Maybe<A>
-	 * is a Just<A>, or applying the function nothing when this Maybe<A> is a Nothing<A>
+	 * Simulates ML style pattern matching on the union, applying the function just when this {@code Maybe<A>}
+	 * is a {@code Just<A>}, or applying the function nothing when this {@code Maybe<A>} is a {@code Nothing<A>}.
 	 *
 	 * @param <B> the result type
-	 * @param just the function to apply when this is a Just<A>
-	 * @param nothing the function to apply when this is a Nothing<a>
+	 * @param just the function to apply when this is a {@code Just<A>}
+	 * @param nothing the function to apply when this is a {@code Nothing<A>}
 	 * @return the result of applying the appropriate function
 	 */
 	public abstract <B> B match(final Function<A, B> just, final Supplier<B> nothing);
 	
 	/**
-	 * Lifts a function A -> B to Maybe<A> -> Maybe<B> and applies the function to this Maybe<A>. This
-	 * yields a Just<B> when this is a Just<A>, or a Nothing<B> when this is a Nothing<A>
+	 * Lifts a function {@code A -> B} to {@code Maybe<A> -> Maybe<B>} and applies the function to this {@code Maybe<A>}. This
+	 * yields a {@code Just<B>} when this is a {@code Just<A>}, or a {@code Nothing<B>} when this is a {@code Nothing<A>}.
 	 *
-	 * @param <B> the domain of f
+	 * @param <B> the domain of {@code f}
 	 * @param f the function to lift
-	 * @return the Maybe<B> as a result of applying the lifted function f
+	 * @return the {@code Maybe<B>} as a result of applying the lifted function {@code f}
 	 */
 	public <B> Maybe<B> map(final Function<A, B> f)
 	{
@@ -51,12 +51,12 @@ public abstract class Maybe<A> {
 	}
 	
 	/**
-	 * Lifts a function A -> Maybe<B> to Maybe<A> -> Maybe<B> and applies the function to this Maybe<A>.
-	 * This yields a Just<B> when this is a Just<A>, or a Nothing<B> when this is a Nothing<A>
+	 * Lifts a function {@code A -> Maybe<B>} to {@code Maybe<A> -> Maybe<B>} and applies the function to this {@code Maybe<A>}.
+	 * This yields a {@code Just<B>} when this is a {@code Just<A>}, or a {@code Nothing<B>} when this is a {@code Nothing<A>}.
 	 *
-	 * @param <B> the domain of f
+	 * @param <B> the domain of {@code f}
 	 * @param f the function to lift
-	 * @return the Maybe<A> as a result of applying the lifted function f
+	 * @return the {@code Maybe<A>} as a result of applying the lifted function {@code f}
 	 */
 	public <B> Maybe<B> flatMap(final Function<A, Maybe<B>> f)
 	{
@@ -64,13 +64,13 @@ public abstract class Maybe<A> {
 	}
 	
 	/**
-	 * Yields the lifted value when this is a Just<A>, or the value provided by the supplier defaultValue
-	 * when this is a Nothing<A> 
+	 * Yields the lifted value when this is a {@code Just<A>}, or the value provided by the supplier defaultValue
+	 * when this is a {@code Nothing<A>}.
 	 *
-	 * @param defaultValue a supplier that provides an A to use when this is a Nothing<A>
-	 * @return either the lifted value or the value supplied by defaultValue
+	 * @param defaultValue a supplier that provides an {@code A} to use when this is a {@code Nothing<A>}
+	 * @return either the lifted value or the value supplied by {@code defaultValue}
 	 */
-	public A GetOrElse(final Supplier<A> defaultValue)
+	public A getOrElse(final Supplier<A> defaultValue)
 	{
 		return this.match(a -> a, defaultValue);
 	}

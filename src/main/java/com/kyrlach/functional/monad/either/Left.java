@@ -3,7 +3,7 @@ package com.kyrlach.functional.monad.either;
 import java.util.function.Function;
 
 /**
- * Represents a value of type A lifted to Either<A,B>
+ * Represents a value of type {@code A} lifted to {@code Either<A,B>}.
  *
  * @param <A> the left (failure) type
  * @param <B> the right (success) type
@@ -11,12 +11,12 @@ import java.util.function.Function;
 public final class Left<A, B> extends Either<A, B> {
 	
 	/**
-	 * A type constructor that lifts an A to Either<A, B>
+	 * A type constructor that lifts an {@code A} to {@code Either<A, B>}.
 	 *
 	 * @param <A> the left (failure) type
 	 * @param <B> the right (success) type
 	 * @param a the value to lift
-	 * @return an Either<A, B> representing a Left<A, B>
+	 * @return an {@code Either<A, B>} representing a {@code Left<A, B>}
 	 */
 	public static <A, B> Left<A, B> Left(A a) {
 		return new Left<A, B>(a);
