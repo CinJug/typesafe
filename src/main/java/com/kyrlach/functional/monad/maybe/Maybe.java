@@ -70,7 +70,7 @@ public abstract class Maybe<A> {
 	 * @param defaultValue a supplier that provides an A to use when this is a Nothing<A>
 	 * @return either the lifted value or the value supplied by defaultValue
 	 */
-	public A GetOrElse(final Supplier<A> defaultValue)
+	public A getOrElse(final Supplier<A> defaultValue)
 	{
 		return this.match(a -> a, defaultValue);
 	}
