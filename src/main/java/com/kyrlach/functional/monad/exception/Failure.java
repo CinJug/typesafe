@@ -3,13 +3,13 @@ package com.kyrlach.functional.monad.exception;
 import java.util.function.Function;
 
 /**
- * Represents an error occurring from a () -> A \/ Throwable
+ * Represents an error occurring from a {@code () -> A \u228E Throwable}.
  *
  * @param <A> the type of value that would have resulted from a successful computation
  */
 public final class Failure<A> extends Try<A> {
 	
-	/** The error that arose from the computation () -> A \/ Throwable */
+	/** The error that arose from the computation {@code () -> A \u228E Throwable} */
 	private final Throwable error;
 	
 	/**
