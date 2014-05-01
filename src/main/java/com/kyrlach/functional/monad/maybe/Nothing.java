@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 public final class Nothing<A> extends Maybe<A> {
 	
 	/**
-	 * This constructor is package procted to preserve algebraic consistency
+	 * This constructor is package protected to preserve algebraic consistency
 	 */
 	Nothing() {}
 
